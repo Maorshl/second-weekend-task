@@ -46,8 +46,8 @@ const mainTable = [
     topic: "JavaScript",
   },
   {
-    startedAt: new Date("2021-01-7-11:00"),
-    finishedAt: new Date("2021-01-7-17:00"),
+    startedAt: new Date("2021-01-7-11:10"),
+    finishedAt: new Date("2021-01-7-17:10"),
     tasksGiven: 13,
     tasksFinished: 6,
     topic: "Git",
@@ -74,11 +74,17 @@ const mainTable = [
     topic: "GitHub",
   },
 ];
-
+function timeSpent(end, start) {
+  let total = end - start;
+  return Math.floor(total * 2.77777778 * 10 ** -7);
+}
 for (let i = 1; i < mainTable.length; i++) {
-  let timeSpent = mainTable[i].finishedAt - mainTable[i].startedAt;
-  timeSpent = Math.floor(timeSpent * 2.77777778 * 10 ** -7);
-  mainTable[i].totalTime = timeSpent;
+  // let timeSpent = mainTable[i].finishedAt - mainTable[i].startedAt;
+  // timeSpent = Math.floor(timeSpent * 2.77777778 * 10 ** -7);
+  mainTable[i].totalTime = timeSpent(
+    mainTable[i].finishedAt,
+    mainTable[i].startedAt
+  );
   mainTable[i].tasksFinishedPrecent = Math.floor(
     (mainTable[i].tasksFinished / mainTable[i].tasksGiven) * 100
   );
@@ -96,6 +102,7 @@ const headOfColumns = [
   "Total time",
   "Tasks completed percentage (%)",
 ];
+
 for (let i = 0; i <= 11; i++) {
   // creates a table row
   let row = document.createElement("tr");
@@ -111,17 +118,17 @@ for (let i = 0; i <= 11; i++) {
   for (let prop in mainTable[i]) {
     //put in the td the data and assigning classes
     if (prop === "startedAt" || prop === "finishedAt") {
-      let cell = document.createElement("td");
+      const cell = document.createElement("td");
       cell.setAttribute("class", `${prop}`);
-      let cellText = document.createTextNode(
+      const cellText = document.createTextNode(
         `${mainTable[i][prop].getHours()}:${mainTable[i][prop].getMinutes()}`
       );
       cell.appendChild(cellText);
       row.appendChild(cell);
     } else {
-      let cell = document.createElement("td");
+      const cell = document.createElement("td");
       cell.setAttribute("class", `${prop}`);
-      let cellText = document.createTextNode(mainTable[i][prop]);
+      const cellText = document.createTextNode(mainTable[i][prop]);
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
@@ -131,6 +138,7 @@ for (let i = 0; i <= 11; i++) {
 tbl.appendChild(tblBody);
 // appends <table> into <body>
 body.appendChild(tbl);
+
 const column5 = document.getElementsByClassName("totalTime");
 for (let i = 0; i < 10; i++) {
   if (column5[i].innerHTML >= 6) {
@@ -141,6 +149,7 @@ for (let i = 0; i < 10; i++) {
     column5[i].style.backgroundColor = "lime";
   }
 }
+
 const column6 = document.getElementsByClassName("tasksFinishedPrecent");
 for (let i = 0; i < 10; i++) {
   if (column6[i].innerHTML >= 80) {
