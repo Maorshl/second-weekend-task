@@ -16,7 +16,7 @@ table {
   background-color: rgb(255, 255, 234);
   font-family: Ariel;
 }
-td {
+td, th{
   border: 1px solid black;
   border-radius: 4%;
 }
@@ -25,6 +25,6 @@ body {
   background-image: linear-gradient(180deg, Azure, AliceBlue, Gainsboro);
 }
 
-tr:hover {
+td:hover {
   background-color: aquamarine;
 }

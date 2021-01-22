@@ -102,7 +102,7 @@ for (let i = 0; i <= 11; i++) {
   //creates the heads of the table
   if (i === 0) {
     for (let j = 0; j < 7; j++) {
-      let cell = document.createElement("td");
+      let cell = document.createElement("th");
       let cellText = document.createTextNode(headOfColumns[j]);
       cell.appendChild(cellText);
       row.appendChild(cell);
