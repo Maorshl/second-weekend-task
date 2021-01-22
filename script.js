@@ -84,9 +84,9 @@ for (let i = 1; i < mainTable.length; i++) {
   );
 }
 
-let body = document.getElementsByTagName("body")[0];
-let tbl = document.createElement("table");
-let tblBody = document.createElement("tbody");
+const body = document.getElementsByTagName("body")[0];
+const tbl = document.createElement("table");
+const tblBody = document.createElement("tbody");
 const headOfColumns = [
   "Started time",
   "Finished time",
@@ -131,7 +131,7 @@ for (let i = 0; i <= 11; i++) {
 tbl.appendChild(tblBody);
 // appends <table> into <body>
 body.appendChild(tbl);
-let column5 = document.getElementsByClassName("totalTime");
+const column5 = document.getElementsByClassName("totalTime");
 for (let i = 0; i < 10; i++) {
   if (column5[i].innerHTML >= 6) {
     column5[i].style.backgroundColor = "red";
@@ -141,7 +141,7 @@ for (let i = 0; i < 10; i++) {
     column5[i].style.backgroundColor = "lime";
   }
 }
-let column6 = document.getElementsByClassName("tasksFinishedPrecent");
+const column6 = document.getElementsByClassName("tasksFinishedPrecent");
 for (let i = 0; i < 10; i++) {
   if (column6[i].innerHTML >= 80) {
     column6[i].style.backgroundColor = "Chocolate";
