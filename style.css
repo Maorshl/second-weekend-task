@@ -1,5 +1,7 @@
 h1 {
     text-align: center;
+    font-family: Arial, sans-serif;
+    text-decoration: underline;
 }
 table {
   border: 1px double black;
@@ -12,6 +14,7 @@ table {
   text-align: center;
   border-spacing: 6px;
   background-color: rgb(255, 255, 234);
+  font-family: Ariel;
 }
 td {
   border: 1px solid black;

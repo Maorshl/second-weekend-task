@@ -1,6 +1,7 @@
 "use strict";
 document.write("<h1>The learning table</h1>");
 const mainTable = [
+  //adding an empty object for the heads of the table placement
   {},
   {
     startedAt: new Date("2021-01-7-15:20"),
@@ -98,6 +99,7 @@ const headOfColumns = [
 for (let i = 0; i <= 11; i++) {
   // creates a table row
   let row = document.createElement("tr");
+  //creates the heads of the table
   if (i === 0) {
     for (let j = 0; j < 7; j++) {
       let cell = document.createElement("td");
@@ -107,9 +109,7 @@ for (let i = 0; i <= 11; i++) {
     }
   }
   for (let prop in mainTable[i]) {
-    // Create a <td> element and a text node, make the text
-    // node the contents of the <td>, and put the <td> at
-    // the end of the table row
+    //put in the td the data and assigning classes
     if (prop === "startedAt" || prop === "finishedAt") {
       let cell = document.createElement("td");
       cell.setAttribute("class", `${prop}`);
@@ -131,8 +131,6 @@ for (let i = 0; i <= 11; i++) {
 tbl.appendChild(tblBody);
 // appends <table> into <body>
 body.appendChild(tbl);
-// sets the border attribute of tbl to 2;
-tbl.setAttribute("border", "2");
 let column5 = document.getElementsByClassName("totalTime");
 for (let i = 0; i < 10; i++) {
   if (column5[i].innerHTML >= 6) {
@@ -153,5 +151,3 @@ for (let i = 0; i < 10; i++) {
     column6[i].style.backgroundColor = "Bisque";
   }
 }
-
-console.log(Number(column6[0].innerHTML));
