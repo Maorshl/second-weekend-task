@@ -82,7 +82,6 @@ for (let i = 1; i < mainTable.length; i++) {
     "%";
 }
 
-//console.log(mainTable[0].tasksFinishedPrecent());
 let body = document.getElementsByTagName("body")[0];
 let tbl = document.createElement("table");
 let tblBody = document.createElement("tbody");
