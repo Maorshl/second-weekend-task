@@ -76,7 +76,7 @@ for (let i = 0; i < mainTable.length; i++) {
   let timeSpent = mainTable[i].finishedAt - mainTable[i].startedAt;
   timeSpent = Math.floor(timeSpent * 2.77777778 * 10 ** -7);
   mainTable[i].totalTime = timeSpent;
-  mainTable[i].tasksFinished = Math.floor(
+  mainTable[i].tasksFinishedPrecent = Math.floor(
     (mainTable[i].tasksFinished / mainTable[i].tasksGiven) * 100
   );
 }
