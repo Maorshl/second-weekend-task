@@ -1,10 +1,27 @@
+h1 {
+    text-align: center;
+}
 table {
+  border: 1px double black;
   margin: auto;
   width: 50vw;
   height: 50vh;
-  margin-top: 15%;
-  padding: 15%;
+  margin-top: 5%;
+  margin-bottom: 15%;
+  padding: 2%;
+  text-align: center;
+  border-spacing: 6px;
+  background-color: rgb(255, 255, 234);
+}
+td {
+  border: 1px solid black;
+  border-radius: 4%;
+}
 }
 body {
   background-image: linear-gradient(180deg, Azure, AliceBlue, Gainsboro);
+}
+
+tr:hover {
+  background-color: aquamarine;
 }

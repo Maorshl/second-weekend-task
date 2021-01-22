@@ -1,4 +1,5 @@
 "use strict";
+document.write("<h1>The learning table</h1>");
 const mainTable = [
   {},
   {
