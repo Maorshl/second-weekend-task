@@ -4,6 +4,3 @@ table {
   height: 30vh;
   margin-top: 15%;
 }
-table > tr > td {
-  color: blue;
-}

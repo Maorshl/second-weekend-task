@@ -111,6 +111,7 @@ for (let i = 0; i <= 11; i++) {
     // the end of the table row
     if (prop === "startedAt" || prop === "finishedAt") {
       let cell = document.createElement("td");
+      cell.setAttribute("class", `${prop}`);
       let cellText = document.createTextNode(
         `${mainTable[i][prop].getHours()}:${mainTable[i][prop].getMinutes()}`
       );
@@ -118,7 +119,8 @@ for (let i = 0; i <= 11; i++) {
       row.appendChild(cell);
     } else {
       let cell = document.createElement("td");
-      let cellText = document.createTextNode(`${mainTable[i][prop]}`);
+      cell.setAttribute("class", `${prop}`);
+      let cellText = document.createTextNode(mainTable[i][prop]);
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
