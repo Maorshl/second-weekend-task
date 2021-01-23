@@ -25,6 +25,7 @@ th {
 }
 body {
   background-image: linear-gradient(180deg, Azure, AliceBlue, Gainsboro);
+  height: 100vh;
 }
 
 td:hover {
