@@ -75,7 +75,7 @@ const mainTable = [
   },
 ];
 function timeSpent(end, start) {
-  let total = end - start;
+  const total = end - start;
   return Math.floor(total * 2.77777778 * 10 ** -7);
 }
 for (let i = 1; i < mainTable.length; i++) {
@@ -132,7 +132,6 @@ for (let i = 0; i <= 11; i++) {
   tblBody.appendChild(row);
 }
 tbl.appendChild(tblBody);
-// appends <table> into <body>
 body.appendChild(tbl);
 
 const column5 = document.getElementsByClassName("totalTime");
