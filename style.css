@@ -30,3 +30,6 @@ body {
 td:hover {
   background-color: aquamarine;
 }
+tr:nth-child(even) {
+  background-color: #b8ffa696;
+}

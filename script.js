@@ -79,8 +79,6 @@ function timeSpent(end, start) {
   return Math.floor(total * 2.77777778 * 10 ** -7);
 }
 for (let i = 1; i < mainTable.length; i++) {
-  // let timeSpent = mainTable[i].finishedAt - mainTable[i].startedAt;
-  // timeSpent = Math.floor(timeSpent * 2.77777778 * 10 ** -7);
   mainTable[i].totalTime = timeSpent(
     mainTable[i].finishedAt,
     mainTable[i].startedAt
@@ -103,35 +101,33 @@ const headOfColumns = [
   "Tasks completed percentage (%)",
 ];
 
+function addCell(type, value, row, prop = null) {
+  const cell = document.createElement(type);
+  const cellText = document.createTextNode(value);
+  if (type === "td") {
+    cell.setAttribute("class", `${prop}`);
+  }
+  cell.appendChild(cellText);
+  row.appendChild(cell);
+}
 for (let i = 0; i <= 11; i++) {
   // creates a table row
   let row = document.createElement("tr");
   //creates the heads of the table
   if (i === 0) {
     for (let j = 0; j < 7; j++) {
-      let cell = document.createElement("th");
-      let cellText = document.createTextNode(headOfColumns[j]);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
+      addCell("th", headOfColumns[j], row);
     }
   }
   for (let prop in mainTable[i]) {
     //put in the td the data and assigning classes
+    let textNode;
     if (prop === "startedAt" || prop === "finishedAt") {
-      const cell = document.createElement("td");
-      cell.setAttribute("class", `${prop}`);
-      const cellText = document.createTextNode(
-        `${mainTable[i][prop].getHours()}:${mainTable[i][prop].getMinutes()}`
-      );
-      cell.appendChild(cellText);
-      row.appendChild(cell);
+      textNode = `${mainTable[i][prop].getHours()}:${mainTable[i][prop].getMinutes()}`;
     } else {
-      const cell = document.createElement("td");
-      cell.setAttribute("class", `${prop}`);
-      const cellText = document.createTextNode(mainTable[i][prop]);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
+      textNode = mainTable[i][prop];
     }
+    addCell("td", textNode, row, prop);
   }
   tblBody.appendChild(row);
 }
