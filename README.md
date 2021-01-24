@@ -1,7 +1,5 @@
 # Second Weekend Task
 
-# branch check
-
 ## General Requirements
 
 Create array with 10 objects, each object has the properties:
