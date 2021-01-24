@@ -77,11 +77,17 @@ const mainTable = [
     topic: "GitHub",
   },
 ];
+
 function tasksGenerator(obj) {
-  const tasksGiven = Math.floor(Math.random() * 20);
+  let tasksGiven = null;
   let tasksFinished = null;
-  while (tasksFinished > tasksGiven || tasksFinished === null) {
+  while (
+    tasksFinished > tasksGiven ||
+    tasksFinished === null ||
+    tasksGiven === 0
+  ) {
     tasksFinished = Math.floor(Math.random() * 20);
+    tasksGiven = Math.floor(Math.random() * 20);
   }
   obj.tasksGiven = tasksGiven;
   obj.tasksFinished = tasksFinished;
@@ -92,6 +98,7 @@ function timeSpent(end, start) {
   return (total * 2.77777778 * 10 ** -7).toFixed(1);
 }
 for (let i = 1; i < mainTable.length; i++) {
+  tasksGenerator(mainTable[i]);
   mainTable[i].totalTime = timeSpent(
     mainTable[i].finishedAt,
     mainTable[i].startedAt
@@ -99,7 +106,6 @@ for (let i = 1; i < mainTable.length; i++) {
   mainTable[i].tasksFinishedPrecent = Math.floor(
     (mainTable[i].tasksFinished / mainTable[i].tasksGiven) * 100
   );
-  tasksGenerator(mainTable[i]);
 }
 
 const tbl = document.createElement("table");
