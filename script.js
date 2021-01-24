@@ -1,5 +1,8 @@
 "use strict";
-document.write("<h1>The learning table</h1>");
+const header = document.createElement("h1");
+header.innerHTML = "Learning table v2.0";
+const body = document.getElementsByTagName("body")[0];
+body.appendChild(header);
 const mainTable = [
   //adding an empty object for the heads of the table placement
   {},
@@ -76,7 +79,7 @@ const mainTable = [
 ];
 function timeSpent(end, start) {
   const total = end - start;
-  return Math.floor(total * 2.77777778 * 10 ** -7);
+  return (total * 2.77777778 * 10 ** -7).toFixed(1);
 }
 for (let i = 1; i < mainTable.length; i++) {
   mainTable[i].totalTime = timeSpent(
@@ -88,7 +91,6 @@ for (let i = 1; i < mainTable.length; i++) {
   );
 }
 
-const body = document.getElementsByTagName("body")[0];
 const tbl = document.createElement("table");
 const tblBody = document.createElement("tbody");
 const headOfColumns = [
@@ -123,7 +125,9 @@ for (let i = 0; i <= 11; i++) {
     //put in the td the data and assigning classes
     let textNode;
     if (prop === "startedAt" || prop === "finishedAt") {
-      textNode = `${mainTable[i][prop].getHours()}:${mainTable[i][prop].getMinutes()}`;
+      textNode = `${mainTable[i][prop].getHours()}:${mainTable[i][
+        prop
+      ].getMinutes()}`;
     } else {
       textNode = mainTable[i][prop];
     }
