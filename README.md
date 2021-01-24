@@ -1,5 +1,10 @@
 # Second Weekend Task
 
+## What's new for this branch
+
+- added a decimal point in the total time column.
+- made the task given and tasks finished random.
+
 ## General Requirements
 
 Create array with 10 objects, each object has the properties:
